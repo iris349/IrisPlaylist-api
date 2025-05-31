@@ -1,0 +1,30 @@
+{
+  "name": "assign2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node api/duksungAI.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/genai": "^1.2.0",
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.19"
+  },
+  "type": "module",
+  "allowedOrigin": "*",
+  "fetchIrisPlaylist": {
+    "url": "https://assign2-eta.vercel.app/api/IrisPlaylist",
+    "method": "POST",
+    "headers": { "Content-Type": "application/json" },
+    "body": { "mood": "기분이 좋아요" }
+  }
+}

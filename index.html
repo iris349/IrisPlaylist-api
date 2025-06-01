@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iris's Playlist</title>
+  <!-- 스타일시트 연결 -->
   <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 메인 제목 -->
   <h1>Take your Time.</h1>
+  <!-- 하늘 이미지 영역 -->
   <div class="image-container">
     <img src="sky.jpg" alt="하늘 이미지" class="main-image">
   </div>
+  <!-- 입력 폼 영역 -->
   <div>
     <form id="playlist-form">
       <input id="mood" type="text" placeholder="오늘의 기분" required>
@@ -18,11 +22,14 @@
       <button type="submit">노래 추천 받기</button>
     </form>
   </div>
+  <!-- 추천 결과 표시 영역 -->
   <div id="result"></div>
   <script>
+    // 폼과 결과 영역 요소 가져오기
     const form = document.getElementById("playlist-form");
     const resultDiv = document.getElementById("result");
 
+    // 폼 제출 이벤트 처리
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -32,6 +39,7 @@
       resultDiv.textContent = "노래를 추천 중입니다...";
 
       try {
+        // API로 기분과 날씨 전송
         const response = await fetch("https://assign2-omega.vercel.app/api/IrisPlaylist", {
           method: "POST",
           headers: {
@@ -42,6 +50,7 @@
 
         const data = await response.json();
 
+        // 결과 표시
         if (response.ok) {
           resultDiv.textContent = data.aiResponse || data.answer || "노래를 받아오지 못했습니다.";
         } else {

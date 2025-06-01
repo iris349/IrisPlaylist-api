@@ -29,7 +29,8 @@ export default async function handler(req, res) {
         const prompt = 
 `내 기분은 "${mood}"이고, 오늘 날씨는 "${weather}"야.
 이 상황에 어울리는 노래 한 곡을 추천해줘.
-노래 제목과 가수, 그리고 추천 이유를 2~3줄로 설명해줘.`;
+노래 제목과 가수, 그리고 추천 이유를 2~3줄로 설명해줘.
+그리고 노래제목과 가수를 맨 위에 표시하고 한줄 띄우고 그 이유를 설명해줘.`;
 
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
         const result = await model.generateContent({

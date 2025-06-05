@@ -1,41 +1,30 @@
-# 감정 & 날씨 기반 AI 노래 추천 서비스
+# 감정 & 날씨 기반 AI 노래 추천 서비스 (백엔드/프론트엔드 연동)
 
-이 프로젝트는 사용자의 기분(감정)과 오늘의 날씨를 입력받아,  
-Google Gemini AI를 활용해 상황에 어울리는 노래 한 곡을 추천해주는 웹 서비스입니다.
-매일 듣던 곡만 듣게 되는 일상에서 나의 하루에 조금 더 어울리는 곡을 고르고자 이 프로젝트를 구상했습니다.
+이 프로젝트는 사용자의 기분과 날씨를 입력받아,  
+Google Gemini AI를 활용해 어울리는 노래를 추천해주는 서비스입니다.
+
+프론트엔드와 백엔드는 별도 저장소로 관리하며,  
+fetch와 CORS로 안전하게 연동합니다.
+---
+
+## 연동 구조
+
+- **프론트엔드:**  
+  GitHub Pages(`https://iris349.github.io/IrisPlaylist-front/`)에 배포된 HTML/JS에서  
+  사용자가 입력한 기분과 날씨를 백엔드 API로 전송합니다.
+
+- **백엔드:**  
+  Vercel(`https://assign2-omega.vercel.app/api/IrisPlaylist`)에 배포된 Node.js API가  
+  Google Gemini AI로부터 추천 결과를 받아 프론트엔드에 응답합니다.
+
+- **연동 방식:**  
+  프론트엔드 JS에서 fetch로 백엔드 API를 호출하며,  
+  백엔드에서는 CORS 설정을 통해 프론트엔드 도메인을 허용합니다.
 
 ---
 
-## 주요 기능
+## 환경 변수
 
-- 사용자가 기분과 날씨를 입력하면, AI가 적합한 노래와 추천 이유를 제공합니다.
-- 프론트엔드는 HTML/CSS/JS로 구성되어 있으며,  
-  백엔드는 Node.js(Next.js API Route)와 Google Generative AI(Gemini)를 사용합니다.
-- 백엔드는 Vercel에, 프론트엔드는 GitHub Pages 등에서 각각 배포했습니다.
-  
----
-
-## 사용 방법
-
-1. **프론트엔드(웹페이지)에서**
-   - "오늘의 기분"과 "오늘의 날씨"를 입력하고 "노래 추천 받기" 버튼을 클릭합니다.
-   - 추천 결과(노래 제목/가수, 추천 이유)가 아래 박스에 표시됩니다.
-
-2. **백엔드(API)**
-   - `/api/IrisPlaylist` 엔드포인트로 POST 요청을 보내면  
-     AI가 추천 결과를 반환합니다.
-
----
-
-## 환경 변수 설정
-
-- Google Generative AI(Gemini) API 키를 이용했고, 노출되지 않도록 .gitignore과 .env파일을 유의하며 만들었습니다.
-
----
-
-## 배포
-
-- **백엔드:** Vercel에 배포 (Next.js API Route 사용)
-- **프론트엔드:** GitHub Pages 등 정적 호스팅에 배포
+- `.env` 파일에 Google Gemini API 키(`ASSIGN2_API_KEY`)를 등록해 사용합니다.
 
 ---

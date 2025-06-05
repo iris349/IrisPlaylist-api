@@ -5,8 +5,8 @@ dotenv.config(); // .env 환경변수 적용
 const genAI = new GoogleGenerativeAI(process.env.ASSIGN2_API_KEY);
 
 export default async function handler(req, res) {
-    // CORS 허용
-    res.setHeader("Access-Control-Allow-Origin", "https://github.com/iris349/IrisPlaylist-front");
+    // CORS 허용: 실제 프론트엔드 서비스 주소로 변경
+    res.setHeader("Access-Control-Allow-Origin", "https://iris349.github.io");
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS,GET");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 

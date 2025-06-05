@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(process.env.ASSIGN2_API_KEY);
 
 export default async function handler(req, res) {
     // CORS 허용
-    res.setHeader("Access-Control-Allow-Origin", "https://iris349.github.io");
+    res.setHeader("Access-Control-Allow-Origin", "https://github.com/iris349/IrisPlaylist-front");
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS,GET");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
